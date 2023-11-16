@@ -17,7 +17,13 @@ room_name = localStorage.getItem("room_name");
 
 function send()
 {
- 
+ msg=document.getElememtById("msg").value;
+firebase.dadabase().ref(room_name).push({
+name:user_name,
+	message:msg,
+	like
+});
+	documemt.getElememtById("msg").value="";
 }
 
 function getData() 
@@ -66,5 +72,7 @@ function updateLike(message_id)
 
 function logout() 
 {
-  
+localStorage.removeItem("user_name");
+localStorage.removeItem("room_name");
+window.location.replace("index.html");
 }
