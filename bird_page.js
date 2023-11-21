@@ -17,13 +17,17 @@ room_name = localStorage.getItem("room_name");
 
 function send()
 {
- msg=document.getElememtById("msg").value;
-firebase.dadabase().ref(room_name).push({
+ //msg=document.getElememtById("msg").value;
+msg = document.getElementById("msg").value;
+//firebase.dadabase().ref(room_name).push({
+firebase.database().ref(room_name).push({
 name:user_name,
-	message:msg,
-	like: 0
+message:msg,
+//like
+like: 0
 });
-	documemt.getElememtById("msg").value="";
+//documemt.getElememtById("msg").value="";
+document.getElementById("msg").value = "";
 }
 
 function getData() 
@@ -63,14 +67,14 @@ function updateLike(message_id)
   //Inicie a programar aqui
 button_id=message_id;
 likes=document.getElementById(button_id).value;
-	updated_likes=Number(likes)+1;
+updated_likes=Number(likes)+1;
 
 
   //Programe até aqui
   console.log(updated_likes);
 
   firebase.database().ref(room_name).child(message_id).update({
-	like : updated_likes  
+  like : updated_likes  
   });
 }
 
