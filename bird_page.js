@@ -21,7 +21,7 @@ function send()
 firebase.dadabase().ref(room_name).push({
 name:user_name,
 	message:msg,
-	like
+	like: 0
 });
 	documemt.getElememtById("msg").value="";
 }
