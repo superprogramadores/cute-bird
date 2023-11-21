@@ -39,9 +39,10 @@ function getData()
         console.log(firebase_message_id);
         console.log(message_data);
 //Inicie a programar aqui
+name=message_data["name"];
+message=message_data["message"];
+like=message_data["like"];
 
-
-          
 //Programe até aqui
         name_with_tag = "<h4> "+ name +"<img class='user_tick' src='tick.png'></h4>";
         message_with_tag = "<h4 class='message_h4'>" + message + "</h4>";
@@ -60,6 +61,9 @@ function updateLike(message_id)
 {
   console.log("clicou no botão curtir - " + message_id);
   //Inicie a programar aqui
+button_id=message_id;
+likes=document.getElementById(button_id).value;
+	updated_likes=Number(likes)+1;
 
 
   //Programe até aqui
